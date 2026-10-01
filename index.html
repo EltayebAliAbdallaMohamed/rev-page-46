@@ -1,233 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reveal.js Presentation</title>
 
-    <title>reveal.js</title>
+  <!-- Reveal.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4/dist/theme/black.css">
+  <link rel="stylesheet" href="custom.css">
 
-    <!-- Reveal.js CDN CSS -->
-   
-
-    <!--codde from copilot-->
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reset.css">
-<link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
-<link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/black.css">
-<link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css">
-<link rel="stylesheet" href="custom.css">
-
-    <!--codde from copilot-->
-
-    <!-- Syntax highlighting theme -->
-    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css">
-
-    <!-- Your custom CSS -->
-    <link rel="stylesheet" href="custom.css">
+  <style>
+    .reveal .slides section {
+      text-align: center;
+    }
+    .reveal .slides section figure {
+      margin: 0 auto;
+      max-width: 900px;
+    }
+    .reveal .slides section audio {
+      width: min(70vw, 500px);
+      margin: 20px auto;
+      display: block;
+    }
+    .reveal .slides section details {
+      margin-top: 20px;
+      font-size: 0.9em;
+      text-align: left;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .reveal .slides section .script-text {
+      max-height: 150px;
+      overflow-y: auto;
+      padding-right: 10px;
+      line-height: 1.6;
+    }
+    .reveal .slides section p {
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 
 <body>
-<div class="reveal">
-<div class="slides">
+  <div class="reveal">
+    <div class="slides">
 
-<!-- Slide 1 -->
-<section>
-    <p>Test</p>
-    <figure>
-        <figcaption id="audio-desc" style="font-size:smaller;">
+      <!-- Slide 1 -->
+      <section>
+        <p>Test</p>
+        <figure>
+          <figcaption class="audio-title">
             Q3eSE_LS0_U03_04_Listening_ActivitiesA_B_C
-        </figcaption>
+          </figcaption>
 
-        <audio controls aria-labelledby="audio-desc" aria-describedby="audio-extra-info">
+          <audio controls aria-label="Audio lesson 1">
             <source src="assets/audio/Q3eSE_LS0_U03_04_Listening_ActivitiesA_B_C.mp3" type="audio/mpeg">
-            <source src="audio-file.ogg" type="audio/ogg">
             Your browser does not support the audio element.
-        </audio>
+          </audio>
 
-        <details>
+          <details>
             <summary>Click to show or hide the audio script</summary>
-            <p class="scroll-text">
-                Welcome to Clean Your Plate, a podcast all about food. I’m your host, Samantha Cortez...
-                (your full text continues here exactly as before)
-            </p>
-        </details>
+            <div class="script-text">
+              Welcome to Clean Your Plate, a podcast all about food. I'm your host, Samantha Cortez...
+            </div>
+          </details>
+        </figure>
+      </section>
 
-        <style>
-            .scroll-text {
-                max-height: 150px;
-                overflow-y: auto;
-                padding-right: 10px;
-            }
-        </style>
+      <!-- Slide 2 -->
+      <section>
+        <figure>
+          <figcaption class="audio-title">
+            Library
+          </figcaption>
 
-        <p id="audio-extra-info"></p>
-    </figure>
-</section>
-
-<!-- Slide 2 -->
-<section>
-    <figure>
-        <figcaption id="audio-desc"></figcaption>
-
-        <audio controls aria-labelledby="audio-desc" aria-describedby="audio-extra-info">
+          <audio controls aria-label="Audio lesson 2">
             <source src="assets/audio/I love reading books, so I like to go to the library.mp3" type="audio/mpeg">
-            <source src="audio-file.ogg" type="audio/ogg">
             Your browser does not support the audio element.
-        </audio>
+          </audio>
 
-        <details>
+          <details>
             <summary>Click to show or hide the audio script</summary>
-            I love reading books, so I like to go to the library.
-        </details>
+            <div class="script-text">
+              I love reading books, so I like to go to the library.
+            </div>
+          </details>
 
-        <p id="audio-extra-info">أنا أحب قراءة الكتب، لذلك يعجبني أن أذهب إلى المكتبة</p>
+          <p>أنا أحب قراءة الكتب، لذلك يعجبني أن أذهب إلى المكتبة</p>
+          <p>I like to go to the library because I love reading books.</p>
+        </figure>
+      </section>
 
-        <p style="font-size:calc(100% - 50%);">
-            I like to go to the library because I love reading books.
-        </p>
-    </figure>
-</section>
+      <!-- Slide 3 -->
+      <section>
+        <figure>
+          <figcaption class="audio-title">
+            Animals and food
+          </figcaption>
 
-<!-- Slide 3 -->
-<section>
-    <figure>
-        <figcaption id="audio-desc"></figcaption>
-
-        <audio controls aria-labelledby="audio-desc" aria-describedby="audio-extra-info">
+          <audio controls aria-label="Audio lesson 3">
             <source src="assets/audio/Because i care about animals i don't eat meat.mp3" type="audio/mpeg">
-            <source src="audio-file.ogg" type="audio/ogg">
             Your browser does not support the audio element.
-        </audio>
+          </audio>
 
-        <details>
+          <details>
             <summary>Click to show or hide the audio script</summary>
-            Because I care about animals I don't eat meat.
-        </details>
+            <div class="script-text">
+              Because I care about animals I don't eat meat.
+            </div>
+          </details>
 
-        <p id="audio-extra-info">لأنني أهتم بالحيوانات، لا أكل اللحوم</p>
+          <p>لأنني أهتم بالحيوانات، لا أكل اللحوم</p>
+          <p>I don't eat meat because I care about animals.</p>
+        </figure>
+      </section>
 
-        <p style="font-size:calc(100% - 50%);">
-            I don't eat meat because I care about animals.
-        </p>
-    </figure>
-</section>
+      <!-- Slide 4 -->
+      <section>
+        <figure>
+          <figcaption class="audio-title">
+            Berries
+          </figcaption>
 
-<!-- Slide 4 -->
-<section>
-    <figure>
-        <figcaption id="audio-desc"></figcaption>
-
-        <audio controls aria-labelledby="audio-desc" aria-describedby="audio-extra-info">
+          <audio controls aria-label="Audio lesson 4">
             <source src="assets/audio/Berries have a great flavor, but they also are special because of their bright colors.mp3" type="audio/mpeg">
-            <source src="audio-file.ogg" type="audio/ogg">
             Your browser does not support the audio element.
-        </audio>
+          </audio>
 
-        <details>
+          <details>
             <summary>Click to show or hide the audio script</summary>
-            Berries have a great flavor, but they also are special because of their bright colors.
-        </details>
+            <div class="script-text">
+              Berries have a great flavor, but they also are special because of their bright colors.
+            </div>
+          </details>
 
-        <p id="audio-extra-info">التوت له نكهة رائعة، لكنه أيضًا مميز بسبب ألوانه الزاهية</p>
-    </figure>
-</section>
+          <p>التوت له نكهة رائعة، لكنه أيضًا مميز بسبب ألوانه الزاهية</p>
+        </figure>
+      </section>
 
-<!-- Slide 5 -->
-<section>
-    <figure>
-        <figcaption id="audio-desc"></figcaption>
+      <!-- Slide 5 -->
+      <section>
+        <figure>
+          <figcaption class="audio-title">
+            Bright colors
+          </figcaption>
 
-        <audio controls aria-labelledby="audio-desc" aria-describedby="audio-extra-info">
+          <audio controls aria-label="Audio lesson 5">
             <source src="assets/audio/Special chemicals give berries these bright colors.mp3" type="audio/mpeg">
-            <source src="audio-file.ogg" type="audio/ogg">
             Your browser does not support the audio element.
-        </audio>
+          </audio>
 
-        <details>
+          <details>
             <summary>Click to show or hide the audio script</summary>
-            Special chemicals give berries these bright colors.
-        </details>
+            <div class="script-text">
+              Special chemicals give berries these bright colors.
+            </div>
+          </details>
 
-        <p id="audio-extra-info">المواد الكيميائية الخاصة تعطي التوت هذه الألوان الزاهية</p>
+          <p>المواد الكيميائية الخاصة تعطي التوت هذه الألوان الزاهية</p>
+          <p>Berries have these bright colors because of the special chemicals.</p>
+        </figure>
+      </section>
 
-        <p style="font-size:calc(100% - 50%);">
-            Berries have these bright colors because of the special chemicals.
-        </p>
-    </figure>
-</section>
+      <!-- Slide 6 -->
+      <section>
+        <figure>
+          <figcaption class="audio-title">
+            Vegetarian lifestyle
+          </figcaption>
 
-<!-- Slide 6 -->
-<section>
-    <figure>
-        <figcaption id="audio-desc"></figcaption>
-
-        <audio controls aria-labelledby="audio-desc" aria-describedby="audio-extra-info">
+          <audio controls aria-label="Audio lesson 6">
             <source src="assets/audio/I’m a vegetarian, so I eat a lot of fruits and vegetables.mp3" type="audio/mpeg">
-            <source src="audio-file.ogg" type="audio/ogg">
             Your browser does not support the audio element.
-        </audio>
+          </audio>
 
-        <details>
+          <details>
             <summary>Click to show or hide the audio script</summary>
-            I’m a vegetarian, so I eat a lot of fruits and vegetables.
-        </details>
+            <div class="script-text">
+              I'm a vegetarian, so I eat a lot of fruits and vegetables.
+            </div>
+          </details>
 
-        <p id="audio-extra-info">أنا نباتي، لذلك أكل الكثير من الفواكه والخضروات</p>
+          <p>أنا نباتي، لذلك أكل الكثير من الفواكه والخضروات</p>
+          <p>I eat a lot of fruits and vegetables because I'm a vegetarian.</p>
+        </figure>
+      </section>
 
-        <p style="font-size:calc(100% - 50%);">
-            I eat a lot of fruits and vegetables because I’m a vegetarian.
-        </p>
-    </figure>
-</section>
+    </div>
+  </div>
 
-</div>
-</div>
-
-<!-- Reveal.js CDN Scripts -->
-<script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
-<script src="https://unpkg.com/reveal.js/plugin/notes/notes.js"></script>
-<script src="https://unpkg.com/reveal.js/plugin/markdown/markdown.js"></script>
-<script src="https://unpkg.com/reveal.js/plugin/highlight/highlight.js"></script>
-
-<script>
-Reveal.initialize({
-    hash: true,
-    controls: true,
-    controlsLayout: 'edges',
-    touch: true,
-    keyboard: true,
-    slideNumber: 'c/t',
-    showSlideNumber: 'all',
-    transition: 'slide',
-    progress: true,
-    plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
-});
-</script>
-
-<footer class="global-footer">
-    Created by: Eltayeb Mohamed <br>
+  <!-- Footer -->
+  <footer class="global-footer">
+    Created by: Eltayeb Mohamed<br>
     King Saud University - First Common Year
-</footer>
+  </footer>
 
-<!-- Auto-close <details> -->
-<script>
-Reveal.on('slidechanged', event => {
-    event.currentSlide.querySelectorAll('details').forEach(d => {
-        d.open = false;
+  <!-- Reveal.js scripts -->
+  <script src="https://unpkg.com/reveal.js@4/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js@4/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@4/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js@4/plugin/highlight/highlight.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      controlsLayout:'edges',
+      progress: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
     });
-});
-</script>
 
-<!-- Auto-play audio -->
-<script>
-Reveal.on('slidechanged', event => {
-    const audios = event.currentSlide.querySelectorAll('audio');
-    audios.forEach(audio => {
+    Reveal.on('slidechanged', event => {
+      event.currentSlide.querySelectorAll('details').forEach(d => {
+        d.open = false;
+      });
+
+      const audios = event.currentSlide.querySelectorAll('audio');
+      audios.forEach(audio => {
         audio.currentTime = 0;
         audio.play().catch(() => {});
+      });
     });
-});
-</script>
-
+  </script>
 </body>
 </html>
