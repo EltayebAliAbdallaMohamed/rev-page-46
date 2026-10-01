@@ -1,0 +1,17 @@
+.global-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 16px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  z-index: 1000;
+}
+.scroll-text {
+  max-height: 150px;     /* set the visible height */
+  overflow-y: auto;      /* enable vertical scrolling */
+  padding-right: 10px;   /* optional: space for scrollbar */
+}
