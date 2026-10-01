@@ -12,57 +12,395 @@
   <link rel="stylesheet" href="custom.css">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      background: #1a1a1a;
+    }
+
+    .reveal {
+      background: #1a1a1a;
+    }
+
+    .reveal .slides {
+      background: #1a1a1a;
+    }
+
     .reveal .slides section {
       text-align: center;
+      padding: 60px 40px 100px 40px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
     .reveal .slides section figure {
       margin: 0 auto;
-      max-width: 900px;
+      max-width: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
+    .audio-title {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #00d4ff;
+      text-shadow: 0 2px 10px rgba(0, 212, 255, 0.3);
+      letter-spacing: 1px;
+    }
+
     .reveal .slides section audio {
-      width: min(70vw, 500px);
-      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
+      margin: 30px auto;
       display: block;
+      min-height: 50px;
+      border-radius: 8px;
+      background: #333;
+      padding: 5px;
     }
+
     .reveal .slides section details {
-      margin-top: 20px;
-      font-size: 0.9em;
+      margin: 30px auto;
+      font-size: 1.1em;
       text-align: left;
-      width: 80%;
-      margin-left: auto;
-      margin-right: auto;
+      width: 90%;
+      max-width: 700px;
+      background: #2a2a2a;
+      border-radius: 8px;
+      padding: 0;
+      border: 2px solid #444;
     }
-    .reveal .slides section .script-text {
-      max-height: 150px;
-      overflow-y: auto;
-      padding-right: 10px;
-      line-height: 1.6;
-    }
-    .reveal .slides section p {
+
+    .reveal .slides section details summary {
+      cursor: pointer;
+      font-weight: bold;
       font-size: 1.2em;
+      padding: 20px;
+      background: linear-gradient(90deg, #00d4ff 0%, #0099cc 100%);
+      color: #000;
+      border-radius: 6px;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .reveal .slides section details summary:hover {
+      background: linear-gradient(90deg, #00e5ff 0%, #00b3e5 100%);
+      transform: translateX(5px);
+    }
+
+    .reveal .slides section details summary:focus {
+      outline: 3px solid #ffff00;
+      outline-offset: 2px;
+    }
+
+    .reveal .slides section details summary::before {
+      content: "▶ ";
+      display: inline-block;
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .reveal .slides section details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .reveal .slides section .script-text {
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 20px;
+      line-height: 1.9;
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+      font-size: 1.05em;
+      border-top: 2px solid #00d4ff;
+    }
+
+    .reveal .slides section p {
+      font-size: 1.4em;
+      line-height: 1.8;
+      margin: 18px 0;
+      color: #e0e0e0;
+    }
+
+    /* Arabic text styling */
+    .reveal .slides section p:nth-of-type(odd) {
+      color: #ffb700;
+      font-size: 1.3em;
+    }
+
+    /* Navigation controls styling */
+    .reveal .controls {
+      bottom: 80px;
+    }
+
+    .reveal .controls button {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      border-radius: 50%;
+      background: rgba(0, 212, 255, 0.8);
+      border: none;
+      color: #000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .reveal .controls button:hover {
+      background: rgba(0, 212, 255, 1);
+      transform: scale(1.1);
+    }
+
+    .reveal .controls button:focus {
+      outline: 3px solid #ffff00;
+      outline-offset: 2px;
+    }
+
+    /* Progress bar */
+    .reveal .progress {
+      height: 4px;
+      background: rgba(0, 212, 255, 0.3);
+    }
+
+    .reveal .progress span {
+      background: linear-gradient(90deg, #00d4ff, #00ff88);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+
+    /* Tablet screens (768px and below) */
+    @media (max-width: 768px) {
+      .reveal .slides section {
+        padding: 40px 20px 100px 20px;
+        min-height: auto;
+      }
+
+      .audio-title {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+      }
+
+      .reveal .slides section audio {
+        width: 95%;
+        max-width: 500px;
+        min-height: 45px;
+      }
+
+      .reveal .slides section p {
+        font-size: 1.1em;
+      }
+
+      .reveal .slides section details {
+        width: 95%;
+        max-width: 100%;
+      }
+
+      .reveal .slides section details summary {
+        font-size: 1em;
+        padding: 15px;
+      }
+
+      .reveal .slides section .script-text {
+        font-size: 0.95em;
+        max-height: 250px;
+        padding: 15px;
+      }
+
+      .reveal .controls {
+        bottom: 70px;
+      }
+
+      .reveal .controls button {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+      }
+    }
+
+    /* Small mobile screens (480px and below) */
+    @media (max-width: 480px) {
+      .reveal .slides section {
+        padding: 30px 15px 90px 15px;
+      }
+
+      .audio-title {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+      }
+
+      .reveal .slides section audio {
+        width: 98%;
+        max-width: 100%;
+        min-height: 45px;
+      }
+
+      .reveal .slides section p {
+        font-size: 0.95em;
+        margin: 12px 0;
+      }
+
+      .reveal .slides section details {
+        width: 98%;
+        margin: 15px auto;
+      }
+
+      .reveal .slides section details summary {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+
+      .reveal .slides section .script-text {
+        font-size: 0.85em;
+        max-height: 200px;
+        padding: 12px;
+      }
+
+      .reveal .controls {
+        bottom: 60px;
+      }
+
+      .reveal .controls button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .reveal .slide-number {
+        font-size: 12px;
+        bottom: 70px;
+      }
+    }
+
+    /* Very small screens (320px and below) */
+    @media (max-width: 320px) {
+      .reveal .slides section {
+        padding: 25px 10px 85px 10px;
+      }
+
+      .audio-title {
+        font-size: 0.95em;
+      }
+
+      .reveal .slides section p {
+        font-size: 0.85em;
+      }
+    }
+
+    /* Large desktop screens (1200px and above) */
+    @media (min-width: 1200px) {
+      .reveal .slides section {
+        padding: 80px 60px 120px 60px;
+      }
+
+      .audio-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+      }
+
+      .reveal .slides section audio {
+        width: 80%;
+        max-width: 700px;
+        min-height: 60px;
+      }
+
+      .reveal .slides section p {
+        font-size: 1.6em;
+      }
+
+      .reveal .slides section details {
+        width: 80%;
+        max-width: 800px;
+      }
+
+      .reveal .slides section details summary {
+        font-size: 1.4em;
+        padding: 25px;
+      }
+
+      .reveal .slides section .script-text {
+        font-size: 1.2em;
+        max-height: 350px;
+        padding: 25px;
+      }
+
+      .reveal .controls button {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+      }
+    }
+
+    /* Keyboard navigation indicator */
+    button:focus,
+    a:focus,
+    details:focus {
+      outline: 3px solid #ffff00;
+      outline-offset: 2px;
+    }
+
+    /* Skip navigation for screen readers */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #2a2a2a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #00d4ff;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00e5ff;
     }
   </style>
 </head>
 
 <body>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+  
   <div class="reveal">
-    <div class="slides">
+    <div class="slides" id="main-content">
 
       <!-- Slide 1 -->
-      <section>
-        
+      <section aria-label="Slide 1: Listening Activities">
         <figure>
           <figcaption class="audio-title">
-            Q3eSE_LS0_U03_04_Listening_ActivitiesA_B_C
+        
           </figcaption>
 
-          <audio controls aria-label="Audio lesson 1">
+          <audio controls aria-label="Audio lesson 1: Listening Activities">
             <source src="assets/audio/Q3eSE_LS0_U03_04_Listening_ActivitiesA_B_C.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
 
           <details>
-            <summary>Click to show or hide the audio script</summary>
+            <summary>Show transcript</summary>
             <div class="script-text">
               Welcome to Clean Your Plate, a podcast all about food. I'm your host, Samantha Cortez...
             </div>
@@ -71,19 +409,19 @@
       </section>
 
       <!-- Slide 2 -->
-      <section>
+      <section aria-label="Slide 2: Library">
         <figure>
           <figcaption class="audio-title">
-            Library
+        
           </figcaption>
 
-          <audio controls aria-label="Audio lesson 2">
+          <audio controls aria-label="Audio lesson 2: Library">
             <source src="assets/audio/I love reading books, so I like to go to the library.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
 
           <details>
-            <summary>Click to show or hide the audio script</summary>
+            <summary>Show transcript</summary>
             <div class="script-text">
               I love reading books, so I like to go to the library.
             </div>
@@ -95,19 +433,19 @@
       </section>
 
       <!-- Slide 3 -->
-      <section>
+      <section aria-label="Slide 3: Animals and Food">
         <figure>
           <figcaption class="audio-title">
-            Animals and food
+            
           </figcaption>
 
-          <audio controls aria-label="Audio lesson 3">
+          <audio controls aria-label="Audio lesson 3: Animals and Food">
             <source src="assets/audio/Because i care about animals i don't eat meat.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
 
           <details>
-            <summary>Click to show or hide the audio script</summary>
+            <summary>Show transcript</summary>
             <div class="script-text">
               Because I care about animals I don't eat meat.
             </div>
@@ -119,19 +457,19 @@
       </section>
 
       <!-- Slide 4 -->
-      <section>
+      <section aria-label="Slide 4: Berries">
         <figure>
           <figcaption class="audio-title">
-            Berries
+            
           </figcaption>
 
-          <audio controls aria-label="Audio lesson 4">
+          <audio controls aria-label="Audio lesson 4: Berries">
             <source src="assets/audio/Berries have a great flavor, but they also are special because of their bright colors.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
 
           <details>
-            <summary>Click to show or hide the audio script</summary>
+            <summary>Show transcript</summary>
             <div class="script-text">
               Berries have a great flavor, but they also are special because of their bright colors.
             </div>
@@ -142,19 +480,19 @@
       </section>
 
       <!-- Slide 5 -->
-      <section>
+      <section aria-label="Slide 5: Bright Colors">
         <figure>
           <figcaption class="audio-title">
-            Bright colors
+            Bright Colors
           </figcaption>
 
-          <audio controls aria-label="Audio lesson 5">
+          <audio controls aria-label="Audio lesson 5: Bright Colors">
             <source src="assets/audio/Special chemicals give berries these bright colors.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
 
           <details>
-            <summary>Click to show or hide the audio script</summary>
+            <summary>Show transcript</summary>
             <div class="script-text">
               Special chemicals give berries these bright colors.
             </div>
@@ -166,19 +504,19 @@
       </section>
 
       <!-- Slide 6 -->
-      <section>
+      <section aria-label="Slide 6: Vegetarian Lifestyle">
         <figure>
           <figcaption class="audio-title">
-            Vegetarian lifestyle
+            
           </figcaption>
 
-          <audio controls aria-label="Audio lesson 6">
-            <source src="assets/audio/I’m a vegetarian, so I eat a lot of fruits and vegetables.mp3" type="audio/mpeg">
+          <audio controls aria-label="Audio lesson 6: Vegetarian Lifestyle">
+            <source src="assets/audio/I'm a vegetarian, so I eat a lot of fruits and vegetables.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
 
           <details>
-            <summary>Click to show or hide the audio script</summary>
+            <summary>Show transcript</summary>
             <div class="script-text">
               I'm a vegetarian, so I eat a lot of fruits and vegetables.
             </div>
@@ -208,11 +546,17 @@
     Reveal.initialize({
       hash: true,
       controls: true,
-      controlsLayout:'edges',
+      controlsLayout: 'edges',
       progress: true,
       slideNumber: 'c/t',
       transition: 'slide',
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      transitionSpeed: 'default',
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      touch: true,
+      mobileViewportScale: 1.0,
+      width: '100%',
+      height: '100%',
+      margin: 0
     });
 
     Reveal.on('slidechanged', event => {
